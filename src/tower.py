@@ -1,8 +1,14 @@
 from abc import ABC, abstractmethod
 
 class Tower(ABC):
+    @property
     @abstractmethod
     def legs(self):
+        pass
+
+    @legs.setter
+    @abstractmethod
+    def legs(self, value):
         pass
 
     @property
@@ -17,11 +23,17 @@ class Tower(ABC):
 
 class Tangent(Tower):
     
-    def __init__(self, tower_number):
+    def __init__(self, tower_number, legType):
         self.__tower_number = tower_number
+        self.__leg_type = legType
+        
+    @property
+    def legs(self):
+        return self.__leg_type
 
-    def legs(self, legType):
-        print(f'Tangent leg type {legType} is created')
+    @legs.setter
+    def legs(self, value):
+        self.__leg_type = value
     
     @property
     def towerNumber(self):
@@ -33,11 +45,17 @@ class Tangent(Tower):
 
 class DeadEnd(Tower):
 
-    def __init__(self, tower_number):
+    def __init__(self, tower_number, legType):
         self.__tower_number = tower_number
+        self.__leg_type = legType
+        
+    @property
+    def legs(self):
+        return self.__leg_type
 
-    def legs(self, legType):
-        print(f'DeadEnd leg type {legType} is created')
+    @legs.setter
+    def legs(self, value):
+        self.__leg_type = value
 
     @property
     def towerNumber(self):
@@ -49,7 +67,10 @@ class DeadEnd(Tower):
 
 class TowerBuilder(object):
     @classmethod
-    def createTower(cls, towerType, legType, tower_number):
-        return towerType(tower_number).legs(legType)
+    def createTower(cls, towerType, tower_number, legType):
+        return towerType(tower_number, legType)
+    
+#    def createTower(self, towerType, tower_number, legType):
+#        return towerType(tower_number).legs(legType)
 
 
