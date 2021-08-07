@@ -23,9 +23,8 @@ class Tower(ABC):
 
 class Tangent(Tower):
     
-    def __init__(self, tower_number, legType):
-        self.__tower_number = tower_number
-        self.__leg_type = legType
+    def __init__(self):
+        pass
         
     @property
     def legs(self):
@@ -45,10 +44,9 @@ class Tangent(Tower):
 
 class DeadEnd(Tower):
 
-    def __init__(self, tower_number, legType):
-        self.__tower_number = tower_number
-        self.__leg_type = legType
-        
+    def __init__(self):
+       pass
+
     @property
     def legs(self):
         return self.__leg_type
@@ -68,7 +66,10 @@ class DeadEnd(Tower):
 class TowerBuilder(object):
     @classmethod
     def createTower(cls, towerType, tower_number, legType):
-        return towerType(tower_number, legType)
+        t = towerType()
+        t.tower_number = tower_number
+        t.legs = legType
+        return t 
     
 #    def createTower(self, towerType, tower_number, legType):
 #        return towerType(tower_number).legs(legType)
