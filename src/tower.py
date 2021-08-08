@@ -23,8 +23,8 @@ class Tower(ABC):
 
 class Tangent(Tower):
     
-    def __init__(self):
-        pass
+    def __init__(self, ahead=None):
+        self.ahead = ahead
         
     @property
     def legs(self):
