@@ -45,8 +45,9 @@ class Tangent(Tower):
 
 class DeadEnd(Tower):
 
-    def __init__(self):
-       pass
+    def __init__(self, ahead=None, hardware=None):
+       self.ahead = ahead
+       self.hardware = hardware
 
     @property
     def legs(self):
