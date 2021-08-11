@@ -3,6 +3,36 @@ from abc import ABC, abstractmethod
 class Assembly(ABC):
     @property
     @abstractmethod
+    def shackle(self):
+        pass
+    
+    @shackle.setter
+    @property
+    def shackle(self):
+        pass
+
+    @property
+    @abstractmethod
+    def insulator(self):
+        pass
+
+    @insulator.setter
+    @property
+    def insulator(self):
+        pass
+    
+    @property
+    @abstractmethod
+    def clevis(self):
+        pass
+
+    @clevis.setter
+    @property
+    def clevis(self):
+        pass
+
+    @property
+    @abstractmethod
     def clamp(self):
         pass
     
@@ -11,11 +41,34 @@ class Assembly(ABC):
     def clamp(self):
         pass
 
-
 class Tangent_Assembly(Assembly):
     
     def __init__(self, tower_number=None):
         self.__tower_number = tower_number
+
+    @property
+    def shackle(self):
+        return self.__shackle
+
+    @shackle.setter
+    def shackle(self, value):
+        self.__shackle = value
+
+    @property
+    def insulator(self):
+        return self.__insulator
+
+    @insulator.setter
+    def insulator(self, value):
+        self.__insulator = value
+
+    @property
+    def clevis(self):
+        return self.__clevis
+
+    @clevis.setter
+    def clevis(self, value):
+        self.__clevis = value
 
     @property
     def clamp(self):
