@@ -25,8 +25,15 @@ class Tangent(Tower):
     
     def __init__(self, ahead=None, hardware=None):
         self.ahead = ahead
-        self.hardware = hardware
-        
+        self.__hardware = hardware
+    
+    def __iter__(self):
+        for item in self.__hardware:
+            yield item
+    
+    def __str__(self):
+        return f'{self.__hardware.shackle}'
+            
     @property
     def legs(self):
         return self.__leg_type
