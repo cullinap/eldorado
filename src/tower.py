@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from hardware import Assembly_Builder, Tangent_Assembly
 
 class Tower(ABC):
     @property
@@ -21,7 +22,7 @@ class Tower(ABC):
     def towerNumber(self, value):
         pass
 
-class Tangent(Tower):
+class Tangent(Tower, Assembly_Builder):
     
     def __init__(self, ahead=None, hardware=None):
         self.ahead = ahead
