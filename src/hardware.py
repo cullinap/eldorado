@@ -78,6 +78,21 @@ class Tangent_Assembly(Assembly):
     def clamp(self, value):
         self.__clamp = value
 
+
+class DeadEnd_Assembly(Assembly):
+
+    def __init__(self, tower_number=None):
+        self.__tower_number = tower_number
+
+    @property
+    def shackle(self):
+        return self.__shackle
+
+    @shackle.setter
+    def shackle(self, value):
+        self.__shackle = value
+        
+
 class Assembly_Builder(object):
     @classmethod
     def createAssembly(cls, assemblyType):
