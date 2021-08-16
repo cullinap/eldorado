@@ -24,9 +24,9 @@ class Tower(ABC):
 
 class Tangent(Tower, Assembly_Builder):
     
-    def __init__(self, ahead=None, hardware=None):
+    def __init__(self, ahead=None):
         self.ahead = ahead
-        self.__hardware = hardware
+        #self.__hardware = hardware
     
     def __iter__(self):
         for item in self.__hardware:
@@ -35,6 +35,9 @@ class Tangent(Tower, Assembly_Builder):
     def __str__(self):
         return f'{self.__hardware.shackle}'
             
+    def create_I_string(self):
+        a = Assembbly_Builder.createAssembly(Tangent)   
+
     @property
     def legs(self):
         return self.__leg_type
