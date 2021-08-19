@@ -1,11 +1,11 @@
 # powr
 open source logistics software
 
-Create a new environment
+Create a new environment<br>
 ```conda create -n new_env python=3.9```
 
-Activate
+Activate<br>
 ```conda activate new_env```
 
-Install dependencies
+Install dependencies<br>
 ```pip install -r requirements.txt```
