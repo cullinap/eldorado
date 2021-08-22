@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from hardware import Assembly_Builder, Tangent_Assembly
+from .hardware import Assembly_Builder, Tangent_Assembly
 
 class Tower(ABC):
     @property
@@ -36,11 +36,11 @@ class Tangent(Tower, Assembly_Builder):
         return f'{self.__hardware.shackle}'
             
     def create_I_string(self):
-        a = Assembbly_Builder.createAssembly(Tangent)   
+        a = Assembly_Builder.createAssembly(Tangent)   
 
     def add_hardware(self, number):
         for i in range(number):
-            create_I_string()
+            self.create_I_string()
        
     @property
     def legs(self):
