@@ -38,6 +38,10 @@ class Tangent(Tower, Assembly_Builder):
     def create_I_string(self):
         a = Assembbly_Builder.createAssembly(Tangent)   
 
+    def add_hardware(self, number):
+        for i in range(number):
+            create_I_string()
+       
     @property
     def legs(self):
         return self.__leg_type
