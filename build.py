@@ -15,7 +15,9 @@ ad_assembly.insulator = '139kV'
 t2 = TowerBuilder.createTower(Tangent, 1, 'AD + 6')
 t2.add_hardware(6, ad_assembly)
 
-print(t2.hardware[0].clamp)
-print(t2.hardware[0].clevis)
-print(t2.hardware[0].insulator)
-print(t2.hardware[0].shackle)
+for i in range(6):
+    print(f'hardware assembly: {i}')
+    print(t2.hardware[i].clamp)
+    print(t2.hardware[i].clevis)
+    print(t2.hardware[i].insulator)
+    print(t2.hardware[i].shackle)
