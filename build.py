@@ -1,13 +1,21 @@
-from src.hardware import Tangent_Assembly
+from src.hardware import Tangent_Assembly, Assembly_Builder
 from src.tower import TowerBuilder, Tangent, DeadEnd
 
-t1 = TowerBuilder.createTower(Tangent, 1, 'short')
-t1.ahead = 2
-t1.hardware = Tangent_Assembly(1)
-t1.hardware.clamp = 'shoe'
+'''
+Notes:
+    - type of structure i.e.: lattice, tubular, etc..    
+    - drawing number
+'''
+ad_assembly = Assembly_Builder.createAssembly(Tangent_Assembly)
+ad_assembly.shackle = '30k'
+ad_assembly.clevis = 'y-clevis'
+ad_assembly.clamp = 'basic'
+ad_assembly.insulator = '139kV'
 
-print(t1.hardware.clamp)
-print(t1.ahead)
-print(t1.legs)
+t2 = TowerBuilder.createTower(Tangent, 1, 'AD + 6')
+t2.add_hardware(6, ad_assembly)
 
-
+print(t2.hardware[0].clamp)
+print(t2.hardware[0].clevis)
+print(t2.hardware[0].insulator)
+print(t2.hardware[0].shackle)

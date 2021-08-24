@@ -36,11 +36,12 @@ class Tangent(Tower, Assembly_Builder):
         return f'{self.__hardware.shackle}'
             
     def create_I_string(self):
-        return  Assembly_Builder.createAssembly(Tangent_Assembly)   
-    def add_hardware(self, number):
+        return  Assembly_Builder.createAssembly(Tangent_Assembly) 
+
+    def add_hardware(self, number, hw_assm):
         hw = []
         for i in range(number):
-            hw.append(self.create_I_string())
+            hw.append(hw_assm)
         
         self.hardware = hw    
        
