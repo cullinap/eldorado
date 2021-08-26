@@ -93,6 +93,30 @@ class DeadEnd_Assembly(Assembly):
         self.__shackle = value
         
 
+    @property
+    def insulator(self):
+        return self.__insulator
+
+    @insulator.setter
+    def insulator(self, value):
+        self.__insulator = value
+
+    @property
+    def clevis(self):
+        return self.__clevis
+
+    @clevis.setter
+    def clevis(self, value):
+        self.__clevis = value
+
+    @property
+    def clamp(self):
+        return self.__clamp
+    
+    @clamp.setter
+    def clamp(self, value):
+        self.__clamp = value
+
 class Assembly_Builder(object):
     @classmethod
     def createAssembly(cls, assemblyType):
