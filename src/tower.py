@@ -22,6 +22,9 @@ class Tower(ABC):
     def towerNumber(self, value):
         pass
 
+
+
+# TODO make a basic tower class and then make tangent and DE inehrit
 class Tangent(Tower, Assembly_Builder):
     
     def __init__(self, ahead=None):
@@ -40,7 +43,7 @@ class Tangent(Tower, Assembly_Builder):
 
     def add_hardware(self, number, hw_assm):
         hw = []
-        for i in range(number):
+        for i in range(number + 1):
             hw.append(hw_assm)
         
         self.hardware = hw    
@@ -63,7 +66,6 @@ class Tangent(Tower, Assembly_Builder):
 
 class DeadEnd(Tower):
 
-
     def __init__(self, ahead=None):
         self.ahead = ahead
         #self.__hardware = hardware
@@ -101,11 +103,11 @@ class DeadEnd(Tower):
     def towerNumber(self, value):
         self.__tower_number = value
 
+# TODO change legType to towerType
 class TowerBuilder(object):
     @classmethod
-    def createTower(cls, towerType, tower_number, legType):
+    def createTower(cls, towerType, legType):
         t = towerType()
-        t.tower_number = tower_number
         t.legs = legType
         return t 
     

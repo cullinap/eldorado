@@ -23,23 +23,25 @@ de_assembly.clevis = 'y-clevis'
 de_assembly.clamp = 'de_clamp'
 de_assembly.insulator = '138kV'
 
-t2 = TowerBuilder.createTower(Tangent, 1, 'AD + 6')
-t2.add_hardware(6, ad_assembly)
+tangent = TowerBuilder.createTower(Tangent, 'AD + 3')
+deadend = TowerBuilder.createTower(DeadEnd, 'DD + 2')
 
-t3 = TowerBuilder.createTower(DeadEnd, 2, 'DD + 4')
-t3.add_hardware(6, de_assembly)
+t1 = tangent
+t1.add_hardware(6, ad_assembly)
+t1.towerNumber = 1
 
-for i in range(6):
-    print(f'hardware assembly: {i}')
-    print(t2.hardware[i].clamp)
-    print(t2.hardware[i].clevis)
-    print(t2.hardware[i].insulator)
-    print(t2.hardware[i].shackle)
+t2 = deadend
+t2.add_hardware(6, de_assembly)
+t2.towerNumber = 2
 
-    print(t3.hardware[i].clamp)
-    print(t3.hardware[i].clevis)
-    print(t3.hardware[i].insulator)
-    print(t3.hardware[i].shackle)
+for t in [t1, t2]:
+    for i in range(6):
+        print(f'tower number {t.towerNumber} hardware assembly: {i}')
+        print(t.hardware[i].clamp)
+        print(t.hardware[i].clevis)
+        print(t.hardware[i].insulator)
+        print(t.hardware[i].shackle)
+
 
 
 
