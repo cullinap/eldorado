@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 from abc import ABC, abstractmethod
 from .hardware import Assembly_Builder, Tangent_Assembly
 
@@ -21,7 +22,6 @@ class Tower(ABC):
     @abstractmethod
     def towerNumber(self, value):
         pass
-
 
 
 # TODO make a basic tower class and then make tangent and DE inehrit
@@ -110,7 +110,14 @@ class TowerBuilder(object):
         t = towerType()
         t.legs = legType
         return t 
-    
+
+@dataclass
+class IndividualTower(Tangent, DeadEnd):
+
+    towerType: Tower
+    towerNumber: int
+        
+
 #    def createTower(self, towerType, tower_number, legType):
 #        return towerType(tower_number).legs(legType)
 

@@ -1,5 +1,5 @@
 from src.hardware import Tangent_Assembly, Assembly_Builder, DeadEnd_Assembly
-from src.tower import TowerBuilder, Tangent, DeadEnd
+from src.tower import TowerBuilder, Tangent, DeadEnd, IndividualTower
 
 '''
 Notes:
@@ -26,22 +26,29 @@ de_assembly.insulator = '138kV'
 tangent = TowerBuilder.createTower(Tangent, 'AD + 3')
 deadend = TowerBuilder.createTower(DeadEnd, 'DD + 2')
 
-t1 = tangent
+t1 = IndividualTower(tangent, 1)
 t1.add_hardware(6, ad_assembly)
-t1.towerNumber = 1
 
-t2 = deadend
+t2 = IndividualTower(deadend, 2)
 t2.add_hardware(6, de_assembly)
-t2.towerNumber = 2
 
-for t in [t1, t2]:
+t3 = IndividualTower(tangent, 30)
+t3.add_hardware(6, ad_assembly)
+t3.towerNumber = 3
+
+t4 = IndividualTower(tangent, 4)
+t4.add_hardware(6, ad_assembly)
+
+# t3 overwrites t1 when I do this
+
+for t in [t1,t2,t3,t4]:
     for i in range(6):
         print(f'tower number {t.towerNumber} hardware assembly: {i}')
         print(t.hardware[i].clamp)
         print(t.hardware[i].clevis)
         print(t.hardware[i].insulator)
         print(t.hardware[i].shackle)
-
+        
 
 
 
