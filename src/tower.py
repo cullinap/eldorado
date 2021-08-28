@@ -2,45 +2,51 @@ from dataclasses import dataclass
 from abc import ABC, abstractmethod
 from .hardware import Assembly_Builder, Tangent_Assembly
 
+
+@dataclass
 class Tower(ABC):
-    @property
-    @abstractmethod
-    def legs(self):
-        pass
+    
+    towerNumber: int = None 
+    ahead: int = None
 
-    @legs.setter
-    @abstractmethod
-    def legs(self, value):
-        pass
 
-    @property
-    @abstractmethod
-    def towerNumber(self):
-        pass
-
-    @towerNumber.setter
-    @abstractmethod
-    def towerNumber(self, value):
-        pass
+#    @property
+#    @abstractmethod
+#    def legs(self):
+#        pass
+#
+#    @legs.setter
+#    @abstractmethod
+#    def legs(self, value):
+#        pass
+#
+#    @property
+#    @abstractmethod
+#    def towerNumber(self):
+#        pass
+#
+#    @towerNumber.setter
+#    @abstractmethod
+#    def towerNumber(self, value):
+#        pass
 
 
 # TODO make a basic tower class and then make tangent and DE inehrit
-class Tangent(Tower, Assembly_Builder):
+class Tangent(Tower):
     
-    def __init__(self, ahead=None):
-        self.ahead = ahead
+#    def __init__(self, ahead=None, tower_type):
+#        self.ahead = ahead
+#        self.towerNumber = towerNumber
         #self.__hardware = hardware
-    
+        
+
     def __iter__(self):
         for item in self.__hardware:
             yield item
     
-    def __str__(self):
-        return f'{self.__hardware.shackle}'
+#    def __str__(self):
+#        return f'{self.__hardware.shackle}'
             
-    def create_I_string(self):
-        return  Assembly_Builder.createAssembly(Tangent_Assembly) 
-
     def add_hardware(self, number, hw_assm):
         hw = []
         for i in range(number + 1):
@@ -48,38 +54,35 @@ class Tangent(Tower, Assembly_Builder):
         
         self.hardware = hw    
        
-    @property
-    def legs(self):
-        return self.__leg_type
-
-    @legs.setter
-    def legs(self, value):
-        self.__leg_type = value
-    
-    @property
-    def towerNumber(self):
-        return self.__tower_number
-
-    @towerNumber.setter
-    def towerNumber(self, value):
-        self.__tower_number = value
+#    @property
+#    def legs(self):
+#        return self.__leg_type
+#
+#    @legs.setter
+#    def legs(self, value):
+#        self.__leg_type = value
+#    
+#    @property
+#    def towerNumber(self):
+#        return self.__tower_number
+#
+#    @towerNumber.setter
+#    def towerNumber(self, value):
+#        self.__tower_number = value
 
 class DeadEnd(Tower):
 
-    def __init__(self, ahead=None):
-        self.ahead = ahead
+#    def __init__(self, ahead=None):
+#        self.ahead = ahead
         #self.__hardware = hardware
     
     def __iter__(self):
         for item in self.__hardware:
             yield item
     
-    def __str__(self):
-        return f'{self.__hardware.shackle}'
+#    def __str__(self):
+#        return f'{self.__hardware.shackle}'
             
-    def create_I_string(self):
-        return  Assembly_Builder.createAssembly(Tangent_Assembly) 
-
     def add_hardware(self, number, hw_assm):
         hw = []
         for i in range(number):
@@ -87,21 +90,21 @@ class DeadEnd(Tower):
         
         self.hardware = hw    
        
-    @property
-    def legs(self):
-        return self.__leg_type
-
-    @legs.setter
-    def legs(self, value):
-        self.__leg_type = value
-    
-    @property
-    def towerNumber(self):
-        return self.__tower_number
-
-    @towerNumber.setter
-    def towerNumber(self, value):
-        self.__tower_number = value
+#    @property
+#    def legs(self):
+#        return self.__leg_type
+#
+#    @legs.setter
+#    def legs(self, value):
+#        self.__leg_type = value
+#    
+#    @property
+#    def towerNumber(self):
+#        return self.__tower_number
+#
+#    @towerNumber.setter
+#    def towerNumber(self, value):
+#        self.__tower_number = value
 
 # TODO change legType to towerType
 class TowerBuilder(object):
@@ -113,12 +116,10 @@ class TowerBuilder(object):
 
 @dataclass
 class IndividualTower(Tangent, DeadEnd):
-
-    towerType: Tower
-    towerNumber: int
+    
+    towerNumber: int = None
+    towerType: Tower = None
         
 
-#    def createTower(self, towerType, tower_number, legType):
-#        return towerType(tower_number).legs(legType)
 
 

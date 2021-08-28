@@ -26,7 +26,7 @@ de_assembly.insulator = '138kV'
 tangent = TowerBuilder.createTower(Tangent, 'AD + 3')
 deadend = TowerBuilder.createTower(DeadEnd, 'DD + 2')
 
-t1 = IndividualTower(tangent, 1)
+t1 = IndividualTower(1, tangent)
 t1.add_hardware(6, ad_assembly)
 
 t2 = IndividualTower(deadend, 2)
@@ -34,12 +34,10 @@ t2.add_hardware(6, de_assembly)
 
 t3 = IndividualTower(tangent, 30)
 t3.add_hardware(6, ad_assembly)
-t3.towerNumber = 3
+t3.towerNumber = 3 # update tower number after instantiation
 
 t4 = IndividualTower(tangent, 4)
 t4.add_hardware(6, ad_assembly)
-
-# t3 overwrites t1 when I do this
 
 for t in [t1,t2,t3,t4]:
     for i in range(6):
