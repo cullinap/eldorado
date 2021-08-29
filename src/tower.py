@@ -39,6 +39,16 @@ class TowerBuilder(object):
         t.legs = legType
         return t 
 
+class Tline:    
+
+    def __init__(self):
+        self.head = IndividualTower()
+
+    def append(self):
+        new_node = IndividualTower()
+        cur = self.head 
+
+
 @dataclass
 class IndividualTower(Tangent, DeadEnd):
     
