@@ -1,5 +1,5 @@
 from src.hardware import Tangent_Assembly, Assembly_Builder, DeadEnd_Assembly
-from src.tower import TowerBuilder, Tangent, DeadEnd, IndividualTower
+from src.tower import TowerBuilder, Tangent, DeadEnd, IndividualTower, Tline
 
 '''
 Notes:
@@ -47,7 +47,9 @@ for t in [t1,t2,t3,t4]:
         print(t.hardware[i].insulator)
         print(t.hardware[i].shackle)
         
-
+line = Tline()
+line.addTower(t1)
+line.addTower(t2)
 
 
 

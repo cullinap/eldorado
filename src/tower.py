@@ -44,9 +44,12 @@ class Tline:
     def __init__(self):
         self.head = IndividualTower()
 
-    def append(self):
-        new_node = IndividualTower()
+    def addTower(self, data):
+        new_node = data
         cur = self.head 
+        while cur.nextTower != None:
+            cur = cur.nextTower
+        cur.nextTower = IndividualTower()     
 
 
 @dataclass
@@ -54,6 +57,7 @@ class IndividualTower(Tangent, DeadEnd):
     
     towerNumber: int = None
     towerType: Tower = None
+    nextTower: Tower = None
         
 
 
