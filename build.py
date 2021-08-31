@@ -48,8 +48,11 @@ for t in [t1,t2,t3,t4]:
         print(t.hardware[i].shackle)
         
 line = Tline()
+line.line_name = 'Eldorado'
 line.addTower(t1)
 line.addTower(t2)
+
+print(line.line_name)
 
 
 

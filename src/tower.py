@@ -43,6 +43,7 @@ class Tline:
 
     def __init__(self):
         self.head = IndividualTower()
+        self.line_name = None
 
     def addTower(self, data):
         new_node = data
