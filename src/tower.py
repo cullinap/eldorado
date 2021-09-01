@@ -34,9 +34,9 @@ class DeadEnd(Tower):
 # TODO change legType to towerType
 class TowerBuilder(object):
     @classmethod
-    def createTower(cls, towerType, legType):
+    def createTower(cls, towerType, designation):
         t = towerType()
-        t.legs = legType
+        t.designation = designation
         return t 
 
 class Tline:    
