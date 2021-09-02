@@ -53,6 +53,7 @@ line.addTower(t1)
 line.addTower(t2)
 
 print(line.line_name)
+print(line.length())
 
 
 

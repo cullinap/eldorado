@@ -52,6 +52,13 @@ class Tline:
             cur = cur.nextTower
         cur.nextTower = IndividualTower()     
 
+    def length(self):
+        cur = self.head
+        total = 0
+        while cur.nextTower != None:
+            total += 1
+            cur = cur.nextTower
+        return total
 
 @dataclass
 class IndividualTower(Tangent, DeadEnd):
