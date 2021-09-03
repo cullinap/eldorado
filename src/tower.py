@@ -60,6 +60,14 @@ class Tline:
             cur = cur.nextTower
         return total
 
+    def display(self):
+        towers = []
+        cur = self.head
+        while cur.nextTower != None:
+            towers.append(cur.towerNumber)
+            cur = cur.nextTower
+        return towers
+
 @dataclass
 class IndividualTower(Tangent, DeadEnd):
     

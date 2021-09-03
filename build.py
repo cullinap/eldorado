@@ -54,6 +54,7 @@ line.addTower(t2)
 
 print(line.line_name)
 print(line.length())
+print(line.display())
 
 
 
