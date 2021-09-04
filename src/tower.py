@@ -50,7 +50,7 @@ class Tline:
         cur = self.head 
         while cur.nextTower != None:
             cur = cur.nextTower
-        cur.nextTower = IndividualTower()     
+        cur.nextTower = new_node     
 
     def length(self):
         cur = self.head
@@ -64,8 +64,8 @@ class Tline:
         towers = []
         cur = self.head
         while cur.nextTower != None:
-            towers.append(cur.towerNumber)
             cur = cur.nextTower
+            towers.append(cur)
         return towers
 
 @dataclass

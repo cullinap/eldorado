@@ -39,18 +39,19 @@ t3.towerNumber = 3 # update tower number after instantiation
 t4 = IndividualTower(4, tangent)
 t4.add_hardware(6, ad_assembly)
 
-for t in [t1,t2,t3,t4]:
-    for i in range(6):
-        print(f'tower number {t.towerNumber} hardware assembly: {i}')
-        print(t.hardware[i].clamp)
-        print(t.hardware[i].clevis)
-        print(t.hardware[i].insulator)
-        print(t.hardware[i].shackle)
+#for t in [t1,t2,t3,t4]:
+#    for i in range(6):
+#        print(f'tower number {t.towerNumber} hardware assembly: {i}')
+#        print(t.hardware[i].clamp)
+#        print(t.hardware[i].clevis)
+#        print(t.hardware[i].insulator)
+#        print(t.hardware[i].shackle)
         
 line = Tline()
 line.line_name = 'Eldorado'
 line.addTower(t1)
 line.addTower(t2)
+print("\n")
 
 print(line.line_name)
 print(line.length())
