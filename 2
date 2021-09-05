@@ -31,6 +31,7 @@ class DeadEnd(Tower):
         
         self.hardware = hw    
        
+# TODO change legType to towerType
 class TowerBuilder(object):
     @classmethod
     def createTower(cls, towerType, designation):
@@ -38,11 +39,15 @@ class TowerBuilder(object):
         t.designation = designation
         return t 
 
+@dataclass
 class Tline:    
 
-    def __init__(self):
-        self.head = IndividualTower()
-        self.line_name = None
+    head: object = IndividualTower 
+    line_name: str = None
+
+#    def __init__(self):
+#        self.head = IndividualTower()
+#        self.line_name = None
 
     def addTower(self, data):
         new_node = data
@@ -65,11 +70,7 @@ class Tline:
         while cur.nextTower != None:
             cur = cur.nextTower
             towers.append(cur)
-            print(cur.towerNumber)
-            print(cur.hardware)
-            print('\n')
-
-       # return towers
+        return towers
 
 @dataclass
 class IndividualTower(Tangent, DeadEnd):

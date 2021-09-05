@@ -50,13 +50,13 @@ t4.add_hardware(6, ad_assembly)
 line = Tline()
 line.line_name = 'Eldorado'
 line.addTower(t1)
+print(line.display())
 line.addTower(t2)
 print("\n")
 
 print(line.line_name)
 print(line.length())
-print(line.display())
-
-
-
-    
+line.display()
+#print(line.display())
+#print(line.display()[0])
+#print(line.display()[1])
