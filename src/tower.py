@@ -66,7 +66,10 @@ class Tline:
             cur = cur.nextTower
             towers.append(cur)
             print(cur.towerNumber)
-            print(cur.hardware)
+            print(cur.hardware[0].clamp)
+            print(cur.hardware[0].clevis)
+            print(cur.hardware[0].insulator)
+            print(cur.hardware[0].shackle)
             print('\n')
 
        # return towers
