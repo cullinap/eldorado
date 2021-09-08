@@ -1,5 +1,6 @@
 from src.hardware import Tangent_Assembly, Assembly_Builder, DeadEnd_Assembly
 from src.tower import TowerBuilder, Tangent, DeadEnd, IndividualTower, Tline
+from src.inbound import Truck
 
 '''
 Notes:
@@ -59,3 +60,7 @@ line.display()
 #print(line.display())
 #print(line.display()[0])
 #print(line.display()[1])
+
+inventory = ['part_1', 'part_2']
+shipment_1 = Truck(inventory)
+shipment_1.display_inventory()
