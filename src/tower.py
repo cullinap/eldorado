@@ -66,6 +66,7 @@ class Tline:
             cur = cur.nextTower
             towers.append(cur)
             print(cur.towerNumber)
+            print(f'priority: {cur.priority}')
             print(cur.hardware[0].clamp)
             print(cur.hardware[0].clevis)
             print(cur.hardware[0].insulator)
@@ -80,7 +81,7 @@ class IndividualTower(Tangent, DeadEnd):
     towerNumber: int = None
     towerType: Tower = None
     nextTower: Tower = None
-        
+    priority:    int = None        
 
 
 

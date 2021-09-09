@@ -12,6 +12,22 @@ Notes:
     tangent class 
     - How do I create an tower number instance of the Tangent instance?
 '''
+
+# delivery is made
+manifest = {'30k':10, 'y-clevis':10, 'basic':10, '138kV':10}
+truck_1 = Truck()
+truck_1.inventory = manifest
+
+# blockchain this shipment
+
+
+# add the inventory to the warehosue
+warehouse = Inventory()
+warehouse.addShipment(truck_1)
+warehouse.display()
+
+# assign parts to towers based on their build
+
 ad_assembly = Assembly_Builder.createAssembly(Tangent_Assembly)
 ad_assembly.shackle = '30k'
 ad_assembly.clevis = 'y-clevis'
@@ -23,6 +39,9 @@ de_assembly.shackle = '60k'
 de_assembly.clevis = 'y-clevis'
 de_assembly.clamp = 'de_clamp'
 de_assembly.insulator = '138kV'
+
+# define your towertypes and hardware definitions in a seperate file
+# manage inventory and constructability in seperate files as well
 
 tangent = TowerBuilder.createTower(Tangent, 'AD + 3')
 deadend = TowerBuilder.createTower(DeadEnd, 'DD + 2')
@@ -54,19 +73,14 @@ line.addTower(t1)
 line.addTower(t2)
 #print("\n")
 
+# assign priorities
+t1.priority = 1
+t2.priority = 2
+
 print(line.line_name)
 print('\n')
 line.display()
 #print(line.display())
 #print(line.display()[0])
 #print(line.display()[1])
-
-inventory = ['part_1', 'part_2']
-shipment_1 = Truck()
-shipment_1.inventory = inventory
-
-warehouse = Inventory()
-warehouse.addShipment(shipment_1)
-warehouse.display()
-
 
