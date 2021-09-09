@@ -1,6 +1,8 @@
 from src.hardware import Tangent_Assembly, Assembly_Builder, DeadEnd_Assembly
 from src.tower import TowerBuilder, Tangent, DeadEnd, IndividualTower, Tline
 from src.inbound import Truck, Inventory
+from src.minimalBlock import MinimalBlock
+import datetime
 
 '''
 Notes:
@@ -19,6 +21,11 @@ truck_1 = Truck()
 truck_1.inventory = manifest
 
 # blockchain this shipment
+b = MinimalBlock(0, datetime.datetime.utcnow(), manifest, 'Nan')
+print(b.timestamp)
+print(b.data)
+print(b.hash)
+print('\n')
 
 
 # add the inventory to the warehosue
