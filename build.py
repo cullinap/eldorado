@@ -1,7 +1,7 @@
 from src.hardware import Tangent_Assembly, Assembly_Builder, DeadEnd_Assembly
 from src.tower import TowerBuilder, Tangent, DeadEnd, IndividualTower, Tline
 from src.inbound import Truck, Inventory
-from src.minimalBlock import MinimalBlock
+from src.minimalBlock import MinimalBlock, ItemBlock, AccessoryBlock
 import datetime
 
 '''
@@ -16,22 +16,33 @@ Notes:
 '''
 
 # delivery is made
-manifest = {'30k':10, 'y-clevis':10, 'basic':10, '138kV':10}
+manifest = "{'30k':10, 'y-clevis':10, 'basic':10, '138kV':10}"
 truck_1 = Truck()
 truck_1.inventory = manifest
 
-# blockchain this shipment
-b = MinimalBlock(0, datetime.datetime.utcnow(), manifest, 'Nan')
-print(b.timestamp)
-print(b.data)
-print(b.hash)
+manifest2 = "{'30k':5, 'y-clevis':4, 'basic':20, '138kV':40}"
+truck_2 = Truck()
+truck_2.inventory = manifest2
+
+initial_block = ItemBlock("Initial String", [truck_1.inventory, truck_2.inventory])
+print(initial_block.block_hash)
+print(initial_block.transaction_list)
 print('\n')
+
+# blockchain this shipment
+#b = MinimalBlock(0, datetime.datetime.utcnow(), manifest, 'Nan')
+#print(b.timestamp)
+#print(b.data)
+#print(b.hash)
+#print('\n')
 
 
 # add the inventory to the warehosue
 warehouse = Inventory()
 warehouse.addShipment(truck_1)
+warehouse.addShipment(truck_2) # make it so like items go with like items
 warehouse.display()
+
 
 # assign parts to towers based on their build
 

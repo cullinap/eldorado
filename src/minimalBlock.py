@@ -16,6 +16,28 @@ class MinimalBlock():
         key.update(str(self.previous_hash).encode('utf-8'))
         return key.hexdigest()
 
+class ItemBlock:
+
+    def __init__(self, previous_block_hash, transaction_list):
+        self.previous_block_hash = previous_block_hash
+        self.transaction_list = transaction_list
+        self.block_hash = hashlib.sha256(self.block_data.encode()).hexdigest()
+
+    @property
+    def block_data(self):
+        return "-".join(self.transaction_list) + "-" + self.previous_block_hash
+
+    @property
+    def last_block(self):
+        return self.transaction_list[-1]
+
+
+class AccessoryBlock(ItemBlock):
+
+    def __init__(self, previous_block_hash, transaction_list, name):
+        super().__init__(previous_block_hash, transaction_list)
+        self.name = name
+
 class MinimalChain():
     def __init__(self):
         self.block = [self.get_genesis_block()]
