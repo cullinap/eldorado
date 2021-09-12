@@ -40,6 +40,7 @@ print('\n')
 # add the inventory to the warehosue
 warehouse = Inventory()
 warehouse.addShipment(truck_1)
+wh_block = ItemBlock('init wh shipment', ["{'item1:30'}"])
 warehouse.addShipment(truck_2) # make it so like items go with like items
 warehouse.display()
 
