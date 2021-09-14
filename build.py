@@ -3,6 +3,7 @@ from src.tower import TowerBuilder, Tangent, DeadEnd, IndividualTower, Tline
 from src.inbound import Truck, Inventory
 from src.minimalBlock import MinimalBlock, ItemBlock, AccessoryBlock
 import datetime
+from collections import Counter
 
 '''
 Notes:
@@ -17,12 +18,27 @@ Notes:
 
 # delivery is made
 manifest = "{'30k':10, 'y-clevis':10, 'basic':10, '138kV':10}"
+manifest_dict = {'30k':10, 'y-clevis': 10, 'basic':10, '138kV': 10}
 truck_1 = Truck()
 truck_1.inventory = manifest
 
 manifest2 = "{'30k':5, 'y-clevis':4, 'basic':20, '138kV':40}"
+manifest2_dict = {'30k':5, 'y-clevis': 4, 'basic': 30, '138kV': 40}
 truck_2 = Truck()
 truck_2.inventory = manifest2
+
+manifests = [manifest_dict, manifest2_dict]
+
+c = Counter()
+d = {}
+
+for i in manifests:
+    c.update(i)
+
+print('combine dict')
+print(c)
+print('\n')
+
 
 total_1 = "{30k':10, 'y-clevis':10, 'basic':10, '138kV':10}"
 total_2 = "{'30k':15, 'y-clevis':14, 'basic':30, '129kV':50}"
