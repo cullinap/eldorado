@@ -24,7 +24,10 @@ manifest2 = "{'30k':5, 'y-clevis':4, 'basic':20, '138kV':40}"
 truck_2 = Truck()
 truck_2.inventory = manifest2
 
-initial_block = ItemBlock("Initial String", [truck_1.inventory, truck_2.inventory])
+total_1 = "{30k':10, 'y-clevis':10, 'basic':10, '138kV':10}"
+total_2 = "{'30k':15, 'y-clevis':14, 'basic':30, '129kV':50}"
+
+initial_block = ItemBlock("Initial String", [truck_1.inventory, truck_2.inventory, total_2])
 print(initial_block.block_hash)
 print(initial_block.transaction_list)
 print('\n')
