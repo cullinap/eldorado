@@ -4,6 +4,7 @@ from src.inbound import Truck, Inventory
 from src.minimalBlock import MinimalBlock, ItemBlock, AccessoryBlock
 import datetime
 from collections import Counter
+import json
 
 '''
 Notes:
@@ -42,8 +43,9 @@ print('\n')
 
 total_1 = "{30k':10, 'y-clevis':10, 'basic':10, '138kV':10}"
 total_2 = "{'30k':15, 'y-clevis':14, 'basic':30, '129kV':50}"
+total_3 = json.dumps(c)
 
-initial_block = ItemBlock("Initial String", [truck_1.inventory, truck_2.inventory, total_2])
+initial_block = ItemBlock("Initial String", [truck_1.inventory, truck_2.inventory, total_3])
 print(initial_block.block_hash)
 print(initial_block.transaction_list)
 print('\n')
