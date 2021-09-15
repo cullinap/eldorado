@@ -16,6 +16,23 @@ Notes:
     tangent class 
     - How do I create an tower number instance of the Tangent instance?
 '''
+def bill_of_lading(contents: str) -> dict:
+    items = {}
+    while True:
+        item = input("enter an item: ")
+        qty = input("enter a quantity ")
+
+        if not item:
+            return items
+
+        items[item] = qty
+
+
+
+def bill_of_lading_json(contents: dict) -> json:
+    return json.dumps(contents)
+
+
 
 # delivery is made
 manifest = "{'30k':10, 'y-clevis':10, 'basic':10, '138kV':10}"
@@ -45,6 +62,8 @@ total_1 = "{30k':10, 'y-clevis':10, 'basic':10, '138kV':10}"
 total_2 = "{'30k':15, 'y-clevis':14, 'basic':30, '129kV':50}"
 total_3 = json.dumps(c)
 
+
+# rearrange total so that it goes first in the chain, then add some functions to automate this
 initial_block = ItemBlock("Initial String", [truck_1.inventory, truck_2.inventory, total_3])
 print(initial_block.block_hash)
 print(initial_block.transaction_list)
