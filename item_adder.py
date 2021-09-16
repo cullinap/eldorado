@@ -1,3 +1,4 @@
+from src.inbound import Truck, Inventory
 
 def bill_of_lading() -> dict:
     items = {}
@@ -11,5 +12,11 @@ def bill_of_lading() -> dict:
 
         items[item] = qty
 
-bill_of_lading()
+def truck_delivery(manifest):
+    truck = Truck()
+    truck.inventory = manifest 
+    return truck
 
+items = bill_of_lading()
+truck_1 = truck_delivery(items)
+print(truck_1.inventory)
