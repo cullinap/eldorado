@@ -22,10 +22,16 @@ def truck_delivery(manifest):
 def bill_of_lading_json(contents: dict) -> json:
     return json.dumps(contents)
 
+def store_items_in_db():
+    # conceptually store items in from this function once postgres up
+    pass
+    
+
 items = bill_of_lading()
 truck_1 = truck_delivery(items)
 truck_json = bill_of_lading_json(truck_1.inventory)
 initial_block = ItemBlock("Initial String", [truck_json])
 print(initial_block.block_hash, initial_block.block_data)
 print(truck_1.inventory)
+
 
