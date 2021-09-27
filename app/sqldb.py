@@ -2,6 +2,7 @@ import time
 import random
 from sqlalchemy import create_engine
 
+# database variables
 db_name = 'database'
 db_user = 'username'
 db_pass = 'secret'
