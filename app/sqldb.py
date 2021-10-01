@@ -11,7 +11,7 @@ db_port = '5432'
 
 db_string = 'postgres://{}:{}@{}:{}/{}'.format(db_user, db_pass, db_host, db_port, db_name)
 db = create_engine(db_string)
-# db 
+# db 2 
 
 def add_new_row(n):
     db.execute("INSERT INTO numbers (number, timestamp) "+\
