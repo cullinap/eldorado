@@ -34,5 +34,6 @@ initial_block = ItemBlock("Initial String", [truck_json])
 add_to_db = store_items_in_db(initial_block)
 print(initial_block.block_hash, initial_block.block_data)
 print(truck_1.inventory)
+print(add_to_db)
 
 
