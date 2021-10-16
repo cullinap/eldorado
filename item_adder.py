@@ -24,7 +24,7 @@ def bill_of_lading_json(contents: dict) -> json:
     return json.dumps(contents)
 
 def store_items_in_db(shipment):
-    conn = sqlite3.connect('warehouse.sqlite')
+    conn = sqlite3.connect('database/warehouse.sqlite')
     cur = conn.cursor()
     
     table_schema = """
