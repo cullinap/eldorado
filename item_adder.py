@@ -42,6 +42,9 @@ def store_items_in_db(shipment):
     VALUES ('item', 'qty')
     """
     
+    cur.execute(insert_query)
+    conn.commit()
+    
     cur.execute('SELECT * FROM inventory')
 
     result = cur.fetchall()
