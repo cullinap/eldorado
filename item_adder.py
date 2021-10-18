@@ -35,17 +35,20 @@ def store_items_in_db(shipment):
     );
     """
 
-    cur.execute(table_schema) 
+    cur.execute(table_schema)
+    
+    for i in shipment:
+        print(i)
 
-    insert_query = """
+    insert_query = f"""
     INSERT INTO inventory (name, description)
-    VALUES ('item', 'qty')
+    VALUES ('shipment', '10')
     """
     
     cur.execute(insert_query)
     conn.commit()
     
-    cur.execute('SELECT * FROM inventory')
+    #:cur.execute('SELECT * FROM inventory')
 
     result = cur.fetchall()
     print(result)
@@ -59,7 +62,7 @@ truck_1 = truck_delivery(items)
 truck_json = bill_of_lading_json(truck_1.inventory)
 initial_block = ItemBlock("Initial String", [truck_json])
 
-store_items_in_db(initial_block)
+store_items_in_db(truck_1.inventory)
 #print(initial_block.block_hash, initial_block.block_data)
 #print(truck_1.inventory)
 #print(add_to_db)
