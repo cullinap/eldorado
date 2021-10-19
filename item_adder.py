@@ -38,8 +38,8 @@ def store_items_in_db(shipment):
     cur.execute(table_schema)
   
     print(shipment)
-    item = 'shackle'
-    value = shipment['shackle'] 
+    item = list(shipment.keys())[0] 
+    value = shipment[item]
 
     # make sure ? does not have quotes otherwise binding error
     insert_query = """
