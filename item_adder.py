@@ -13,7 +13,7 @@ def bill_of_lading() -> dict:
             print(f'this is in the fn {items}')
             return items
 
-        items[item] = qty
+        items[item] = int(qty)
 
 def truck_delivery(manifest):
     truck = Truck()
@@ -31,27 +31,23 @@ def store_items_in_db(shipment):
     CREATE TABLE IF NOT EXISTS inventory ( 
         id INTEGER PRIMARY KEY,
         name TEXT NOT NULL,
-        description TEXT
+        description INTEGER
     );
     """
 
     cur.execute(table_schema)
-   
-    print('here')
-    print(shipment.values())
-    for i in shipment:
-        print(i)
-
-    item = shipment.keys()
-    value = shipment.values()
+  
+    print(shipment)
+    item = 'shackle'
+    value = shipment['shackle'] 
 
     # make sure ? does not have quotes otherwise binding error
     insert_query = """
     INSERT INTO inventory (name, description)
-    VALUES (?, 'hi, this is the description');
+    VALUES (?, ?);
     """
     
-    cur.execute(insert_query, (str(item),))
+    cur.execute(insert_query, (str(item),value))
     conn.commit()
     
     cur.execute('SELECT * FROM inventory')
