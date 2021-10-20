@@ -37,9 +37,10 @@ def store_items_in_db(shipment):
 
     cur.execute(table_schema)
   
-    print(shipment)
     item = list(shipment.keys())[0] 
     value = shipment[item]
+
+    item_list = list(shipment.keys())
 
     # make sure ? does not have quotes otherwise binding error
     insert_query = """
@@ -47,8 +48,9 @@ def store_items_in_db(shipment):
     VALUES (?, ?);
     """
     
-    cur.execute(insert_query, (str(item),value))
-    conn.commit()
+    for i in item_list:
+        cur.execute(insert_query, (str(i), shipment[i]))
+        conn.commit()
     
     cur.execute('SELECT * FROM inventory')
 
