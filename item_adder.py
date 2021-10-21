@@ -1,5 +1,6 @@
 from src.inbound import Truck, Inventory
 from src.minimalBlock import MinimalBlock, ItemBlock, AccessoryBlock
+from src.inventory_report import print_inventory
 import json
 import sqlite3
 
@@ -55,7 +56,7 @@ def store_items_in_db(shipment):
     cur.execute('SELECT * FROM inventory')
 
     result = cur.fetchall()
-    print(result)
+    #print(result)
     
     cur.close()
     conn.close()
@@ -67,6 +68,7 @@ truck_json = bill_of_lading_json(truck_1.inventory)
 initial_block = ItemBlock("Initial String", [truck_json])
 
 store_items_in_db(items)
+print_inventory()
 #print(initial_block.block_hash, initial_block.block_data)
 #print(truck_1.inventory)
 #print(add_to_db)
