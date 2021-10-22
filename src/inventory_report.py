@@ -7,7 +7,9 @@ def print_inventory():
 
     cur.execute('SELECT * FROM inventory')
     result = cur.fetchall()
-    print(result)
+
+    for r in result:
+        print(r)
 
     cur.close()
     conn.close()

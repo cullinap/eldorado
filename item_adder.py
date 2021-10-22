@@ -11,7 +11,6 @@ def bill_of_lading() -> dict:
         qty = input("enter a quantity ")
 
         if not item:
-            print(f'this is in the fn {items}')
             return items
 
         items[item] = int(qty)
